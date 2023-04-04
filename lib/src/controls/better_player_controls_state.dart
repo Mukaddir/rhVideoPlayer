@@ -1,11 +1,12 @@
 import 'dart:io';
 import 'dart:math';
-import 'package:better_player/better_player.dart';
-import 'package:better_player/src/controls/better_player_clickable_widget.dart';
-import 'package:better_player/src/core/better_player_utils.dart';
+import '../../better_player.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../core/better_player_utils.dart';
+import 'better_player_clickable_widget.dart';
 
 ///Base class for both material and cupertino controls
 abstract class BetterPlayerControlsState<T extends StatefulWidget>
@@ -101,7 +102,7 @@ abstract class BetterPlayerControlsState<T extends StatefulWidget>
                 .overflowMenuCustomItems.isNotEmpty)
               ...betterPlayerControlsConfiguration.overflowMenuCustomItems.map(
                 (customItem) => _buildMoreOptionsListRow(
-                  customItem.icon,
+                  Icon(customItem.icon),
                   customItem.title,
                   () {
                     Navigator.of(context).pop();
@@ -116,7 +117,7 @@ abstract class BetterPlayerControlsState<T extends StatefulWidget>
   }
 
   Widget _buildMoreOptionsListRow(
-      IconData icon, String name, void Function() onTap) {
+      Widget icon, String name, void Function() onTap) {
     return BetterPlayerMaterialClickableWidget(
       onTap: onTap,
       child: Padding(
@@ -124,10 +125,10 @@ abstract class BetterPlayerControlsState<T extends StatefulWidget>
         child: Row(
           children: [
             const SizedBox(width: 8),
-            Icon(
-              icon,
-              color: betterPlayerControlsConfiguration.overflowMenuIconsColor,
-            ),
+            // Icon(
+            icon,
+            //   color: betterPlayerControlsConfiguration.overflowMenuIconsColor,
+            // ),
             const SizedBox(width: 16),
             Text(
               name,
@@ -271,11 +272,10 @@ abstract class BetterPlayerControlsState<T extends StatefulWidget>
     // HLS / DASH
     final List<String> asmsTrackNames =
         betterPlayerController!.betterPlayerDataSource!.asmsTrackNames ?? [];
-    final List<BetterPlayerAsmsTrack> asmsTracks =
-        betterPlayerController!.betterPlayerAsmsTracks;
+    final List asmsTracks = betterPlayerController!.betterPlayerAsmsTracks;
     final List<Widget> children = [];
     for (var index = 0; index < asmsTracks.length; index++) {
-      final track = asmsTracks[index];
+      dynamic track = asmsTracks[index];
 
       String? preferredName;
       if (track.height == 0 && track.width == 0 && track.bitrate == 0) {
@@ -377,7 +377,7 @@ abstract class BetterPlayerControlsState<T extends StatefulWidget>
 
   void _showAudioTracksSelectionWidget() {
     //HLS / DASH
-    final List<BetterPlayerAsmsAudioTrack>? asmsTracks =
+    final List? asmsTracks =
         betterPlayerController!.betterPlayerAsmsAudioTracks;
     final List<Widget> children = [];
     final BetterPlayerAsmsAudioTrack? selectedAsmsAudioTrack =

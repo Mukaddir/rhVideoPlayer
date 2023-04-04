@@ -1,4 +1,4 @@
-import 'package:better_player/better_player.dart';
+import '../../better_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,28 +16,28 @@ class BetterPlayerControlsConfiguration {
   final Color iconsColor;
 
   ///Icon of play
-  final IconData playIcon;
+  final Widget playIcon;
 
   ///Icon of pause
-  final IconData pauseIcon;
+  final Widget pauseIcon;
 
   ///Icon of mute
-  final IconData muteIcon;
+  final Widget muteIcon;
 
   ///Icon of unmute
-  final IconData unMuteIcon;
+  final Widget unMuteIcon;
 
   ///Icon of fullscreen mode enable
-  final IconData fullscreenEnableIcon;
+  final Widget fullscreenEnableIcon;
 
   ///Icon of fullscreen mode disable
-  final IconData fullscreenDisableIcon;
+  final Widget fullscreenDisableIcon;
 
   ///Cupertino only icon, icon of skip
-  final IconData skipBackIcon;
+  final Widget skipBackIcon;
 
   ///Cupertino only icon, icon of forward
-  final IconData skipForwardIcon;
+  final Widget skipForwardIcon;
 
   ///Flag used to enable/disable fullscreen
   final bool enableFullscreen;
@@ -120,22 +120,22 @@ class BetterPlayerControlsConfiguration {
   final List<BetterPlayerOverflowMenuItem> overflowMenuCustomItems;
 
   ///Icon of the overflow menu
-  final IconData overflowMenuIcon;
+  final Widget overflowMenuIcon;
 
   ///Icon of the PiP menu
-  final IconData pipMenuIcon;
+  final Widget pipMenuIcon;
 
   ///Icon of the playback speed menu item from overflow menu
-  final IconData playbackSpeedIcon;
+  final Widget playbackSpeedIcon;
 
   ///Icon of the subtitles menu item from overflow menu
-  final IconData subtitlesIcon;
+  final Widget subtitlesIcon;
 
   ///Icon of the qualities menu item from overflow menu
-  final IconData qualitiesIcon;
+  final Widget qualitiesIcon;
 
   ///Icon of the audios menu item from overflow menu
-  final IconData audioTracksIcon;
+  final Widget audioTracksIcon;
 
   ///Color of overflow menu icons
   final Color overflowMenuIconsColor;
@@ -165,14 +165,14 @@ class BetterPlayerControlsConfiguration {
     this.controlBarColor = Colors.black87,
     this.textColor = Colors.white,
     this.iconsColor = Colors.white,
-    this.playIcon = Icons.play_arrow_outlined,
-    this.pauseIcon = Icons.pause_outlined,
-    this.muteIcon = Icons.volume_up_outlined,
-    this.unMuteIcon = Icons.volume_off_outlined,
-    this.fullscreenEnableIcon = Icons.fullscreen_outlined,
-    this.fullscreenDisableIcon = Icons.fullscreen_exit_outlined,
-    this.skipBackIcon = Icons.replay_10_outlined,
-    this.skipForwardIcon = Icons.forward_10_outlined,
+    this.playIcon = const Icon(Icons.play_arrow_outlined),
+    this.pauseIcon = const Icon(Icons.pause_outlined),
+    this.muteIcon = const Icon(Icons.volume_up_outlined),
+    this.unMuteIcon = const Icon(Icons.volume_off_outlined),
+    this.fullscreenEnableIcon = const Icon(Icons.fullscreen_outlined),
+    this.fullscreenDisableIcon = const Icon(Icons.fullscreen_exit_outlined),
+    this.skipBackIcon = const Icon(Icons.replay_10_outlined),
+    this.skipForwardIcon = const Icon(Icons.forward_10_outlined),
     this.enableFullscreen = true,
     this.enableMute = true,
     this.enableProgressText = true,
@@ -199,12 +199,12 @@ class BetterPlayerControlsConfiguration {
     this.enablePip = true,
     this.enableRetry = true,
     this.overflowMenuCustomItems = const [],
-    this.overflowMenuIcon = Icons.more_vert_outlined,
-    this.pipMenuIcon = Icons.picture_in_picture_outlined,
-    this.playbackSpeedIcon = Icons.shutter_speed_outlined,
-    this.qualitiesIcon = Icons.hd_outlined,
-    this.subtitlesIcon = Icons.closed_caption_outlined,
-    this.audioTracksIcon = Icons.audiotrack_outlined,
+    this.overflowMenuIcon =const Icon (Icons.more_vert_outlined),
+    this.pipMenuIcon = const Icon(Icons.picture_in_picture_outlined),
+    this.playbackSpeedIcon =const Icon (Icons.shutter_speed_outlined),
+    this.qualitiesIcon = const Icon(Icons.hd_outlined),
+    this.subtitlesIcon = const Icon(Icons.closed_caption_outlined),
+    this.audioTracksIcon =const Icon (Icons.audiotrack_outlined),
     this.overflowMenuIconsColor = Colors.black,
     this.forwardSkipTimeInMilliseconds = 10000,
     this.backwardSkipTimeInMilliseconds = 10000,
@@ -228,12 +228,12 @@ class BetterPlayerControlsConfiguration {
 
   factory BetterPlayerControlsConfiguration.cupertino() {
     return const BetterPlayerControlsConfiguration(
-      fullscreenEnableIcon: CupertinoIcons.arrow_up_left_arrow_down_right,
-      fullscreenDisableIcon: CupertinoIcons.arrow_down_right_arrow_up_left,
-      playIcon: CupertinoIcons.play_arrow_solid,
-      pauseIcon: CupertinoIcons.pause_solid,
-      skipBackIcon: CupertinoIcons.gobackward_15,
-      skipForwardIcon: CupertinoIcons.goforward_15,
+      fullscreenEnableIcon: const Icon(CupertinoIcons.arrow_up_left_arrow_down_right),
+      fullscreenDisableIcon: const Icon(CupertinoIcons.arrow_down_right_arrow_up_left),
+      playIcon: const Icon(CupertinoIcons.play_arrow_solid),
+      pauseIcon: const Icon(CupertinoIcons.pause_solid),
+      skipBackIcon: const Icon(CupertinoIcons.gobackward_15),
+      skipForwardIcon: const Icon(CupertinoIcons.goforward_15),
     );
   }
 

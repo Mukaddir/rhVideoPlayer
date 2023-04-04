@@ -1,4 +1,4 @@
-import 'package:better_player/better_player.dart';
+import '../core/better_player_controller.dart';
 
 ///Controller of Better Player List Video Player.
 class BetterPlayerListVideoPlayerController {

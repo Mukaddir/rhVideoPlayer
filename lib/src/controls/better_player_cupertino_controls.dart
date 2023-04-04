@@ -1,14 +1,11 @@
 import 'dart:async';
-import 'package:better_player/src/configuration/better_player_controls_configuration.dart';
-import 'package:better_player/src/controls/better_player_controls_state.dart';
-import 'package:better_player/src/controls/better_player_cupertino_progress_bar.dart';
-import 'package:better_player/src/controls/better_player_multiple_gesture_detector.dart';
-import 'package:better_player/src/controls/better_player_progress_colors.dart';
-import 'package:better_player/src/core/better_player_controller.dart';
-import 'package:better_player/src/core/better_player_utils.dart';
-import 'package:better_player/src/video_player/video_player.dart';
+import '../../better_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../core/better_player_utils.dart';
+import '../video_player/video_player.dart';
+import 'better_player_cupertino_progress_bar.dart';
 
 class BetterPlayerCupertinoControls extends StatefulWidget {
   ///Callback used to send information if player bar is hidden or not
@@ -259,13 +256,9 @@ class _BetterPlayerCupertinoControlsState
             ),
             decoration: BoxDecoration(color: backgroundColor),
             child: Center(
-              child: Icon(
-                _betterPlayerController!.isFullScreen
-                    ? _controlsConfiguration.fullscreenDisableIcon
-                    : _controlsConfiguration.fullscreenEnableIcon,
-                color: iconColor,
-                size: iconSize,
-              ),
+              child: _betterPlayerController!.isFullScreen
+                  ? _controlsConfiguration.fullscreenDisableIcon
+                  : _controlsConfiguration.fullscreenEnableIcon,
             ),
           ),
         ),
@@ -322,11 +315,7 @@ class _BetterPlayerCupertinoControlsState
               padding: EdgeInsets.symmetric(
                 horizontal: buttonPadding,
               ),
-              child: Icon(
-                _controlsConfiguration.overflowMenuIcon,
-                color: iconColor,
-                size: iconSize,
-              ),
+              child: _controlsConfiguration.overflowMenuIcon,
             ),
           ),
         ),
@@ -367,13 +356,9 @@ class _BetterPlayerCupertinoControlsState
               padding: EdgeInsets.symmetric(
                 horizontal: buttonPadding,
               ),
-              child: Icon(
-                (_latestValue != null && _latestValue!.volume > 0)
-                    ? _controlsConfiguration.muteIcon
-                    : _controlsConfiguration.unMuteIcon,
-                color: iconColor,
-                size: iconSize,
-              ),
+              child: (_latestValue != null && _latestValue!.volume > 0)
+                  ? _controlsConfiguration.muteIcon
+                  : _controlsConfiguration.unMuteIcon,
             ),
           ),
         ),
@@ -392,13 +377,9 @@ class _BetterPlayerCupertinoControlsState
         height: barHeight,
         color: Colors.transparent,
         padding: const EdgeInsets.symmetric(horizontal: 6),
-        child: Icon(
-          controller.value.isPlaying
-              ? _controlsConfiguration.pauseIcon
-              : _controlsConfiguration.playIcon,
-          color: iconColor,
-          size: barHeight * 0.6,
-        ),
+        child: controller.value.isPlaying
+            ? _controlsConfiguration.pauseIcon
+            : _controlsConfiguration.playIcon,
       ),
     );
   }
@@ -444,11 +425,7 @@ class _BetterPlayerCupertinoControlsState
         padding: const EdgeInsets.symmetric(
           horizontal: 8,
         ),
-        child: Icon(
-          _controlsConfiguration.skipBackIcon,
-          color: iconColor,
-          size: barHeight * 0.4,
-        ),
+        child: _controlsConfiguration.skipBackIcon,
       ),
     );
   }
@@ -461,11 +438,7 @@ class _BetterPlayerCupertinoControlsState
         color: Colors.transparent,
         padding: const EdgeInsets.symmetric(horizontal: 6),
         margin: const EdgeInsets.only(right: 8.0),
-        child: Icon(
-          _controlsConfiguration.skipForwardIcon,
-          color: iconColor,
-          size: barHeight * 0.4,
-        ),
+        child: _controlsConfiguration.skipForwardIcon,
       ),
     );
   }
@@ -791,11 +764,7 @@ class _BetterPlayerCupertinoControlsState
                     color: backgroundColor.withOpacity(0.5),
                   ),
                   child: Center(
-                    child: Icon(
-                      _controlsConfiguration.pipMenuIcon,
-                      color: iconColor,
-                      size: iconSize,
-                    ),
+                    child: _controlsConfiguration.pipMenuIcon,
                   ),
                 ),
               ),
